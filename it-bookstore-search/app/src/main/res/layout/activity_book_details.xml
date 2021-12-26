@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <import type="lee.dorian.android.it_bookstore_search.book_details.BookDetailsViewModel" />
+
+        <variable name="viewModel" type="BookDetailsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/ivBook"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="@color/book_backbround"
+                    android:src="@{viewModel._bookDetails.image}"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@{viewModel._bookDetails.title}"
+                    android:textStyle="bold"
+                    style="@style/BookDetailsTextStyle"
+                    app:layout_constraintTop_toBottomOf="@id/ivBook" />
+
+                <TextView
+                    android:id="@+id/tvSubtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@{viewModel._bookDetails.subtitle}"
+                    style="@style/BookDetailsTextStyle"
+                    app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+                <TextView
+                    android:id="@+id/tvAuthors"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text='@{String.format("Authors: %s", viewModel._bookDetails.authors)}'
+                    style="@style/BookDetailsTextStyle"
+                    app:layout_constraintTop_toBottomOf="@id/tvSubtitle" />
+
+                <TextView
+                    android:id="@+id/tvPublisher"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text='@{String.format("Publisher: %s", viewModel._bookDetails.pulisher)}'
+                    style="@style/BookDetailsTextStyle"
+                    app:layout_constraintTop_toBottomOf="@id/tvAuthors" />
+
+                <TextView
+                    android:id="@+id/tvLanguage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text='@{String.format("Language: %s", viewModel._bookDetails.language)}'
+                    style="@style/BookDetailsTextStyle"
+                    app:layout_constraintTop_toBottomOf="@id/tvPublisher" />
+
+                <TextView
+                    android:id="@+id/tvIsbn10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text='@{String.format("ISBN10: %s", viewModel._bookDetails.isbn10)}'
+                    style="@style/BookDetailsTextStyle"
+                    app:layout_constraintTop_toBottomOf="@id/tvLanguage" />
+
+                <TextView
+                    android:id="@+id/tvIsbn13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text='@{String.format("ISBN13: %s", viewModel._bookDetails.isbn13)}'
+                    style="@style/BookDetailsTextStyle"
+                    app:layout_constraintTop_toBottomOf="@id/tvIsbn10" />
+
+                <TextView
+                    android:id="@+id/tvPages"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text='@{String.format("Pages: %s", viewModel._bookDetails.pages)}'
+                    style="@style/BookDetailsTextStyle"
+                    app:layout_constraintTop_toBottomOf="@id/tvIsbn13" />
+
+                <TextView
+                    android:id="@+id/tvYear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text='@{String.format("Year: %s", viewModel._bookDetails.year)}'
+                    style="@style/BookDetailsTextStyle"
+                    app:layout_constraintTop_toBottomOf="@id/tvPages" />
+
+                <TextView
+                    android:id="@+id/tvRating"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text='@{String.format("Rating: %s", viewModel._bookDetails.rating)}'
+                    style="@style/BookDetailsTextStyle"
+                    app:layout_constraintTop_toBottomOf="@id/tvYear" />
+
+                <TextView
+                    android:id="@+id/tvDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text='@{String.format("Desc: %s", viewModel._bookDetails.desc)}'
+                    style="@style/BookDetailsTextStyle"
+                    app:layout_constraintTop_toBottomOf="@id/tvRating" />
+
+                <TextView
+                    android:id="@+id/tvPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text='@{String.format("Price: %s", viewModel._bookDetails.price)}'
+                    style="@style/BookDetailsTextStyle"
+                    app:layout_constraintTop_toBottomOf="@id/tvDesc" />
+
+                <TextView
+                    android:id="@+id/tvToWebPage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text='@{String.format("Web Page: %s", viewModel._bookDetails.url)}'
+                    style="@style/BookDetailsTextStyle"
+                    app:layout_constraintTop_toBottomOf="@id/tvPrice" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <include
+            android:id="@+id/incLoading"
+            layout="@layout/layout_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{(true == viewModel.isLoading()) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

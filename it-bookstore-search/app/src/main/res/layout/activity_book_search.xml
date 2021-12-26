@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <import type="lee.dorian.android.it_bookstore_search.book_search.BookSearchViewModel" />
+
+        <variable
+            name="viewModel"
+            type="BookSearchViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".book_search.BookSearchActivity">
+
+        <EditText
+            android:id="@+id/etQuery"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Input book name or author."
+            android:text="@={viewModel.query}"
+            style="@style/QueryTextStyle"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/btnSearch"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search"
+            style="@style/QueryTextStyle"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/etQuery"
+            app:layout_constraintBottom_toBottomOf="@id/etQuery" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvBookList"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scrollbars="vertical"
+            android:scrollbarFadeDuration="0"
+            app:bookList="@{viewModel.bookList}"
+            app:layout_constraintTop_toBottomOf="@id/etQuery"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <include
+            android:id="@+id/incLoading"
+            layout="@layout/layout_loading"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="@{(true == viewModel.isLoading()) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintTop_toTopOf="@id/rvBookList"
+            app:layout_constraintBottom_toBottomOf="@id/rvBookList"
+            app:layout_constraintLeft_toLeftOf="@id/rvBookList"
+            app:layout_constraintRight_toRightOf="@id/rvBookList" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
