@@ -3,6 +3,7 @@ package lee.dorian.android.it_bookstore_search.book_search
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import io.reactivex.Flowable
+import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.functions.BiFunction
 import io.reactivex.functions.Consumer
@@ -92,7 +93,7 @@ class BookSearchViewModel : BaseViewModel() {
         val bookSearchObservable1 = bookSearchUseCase.run(keyword1, 1).subscribeOn(Schedulers.io())
         val bookSearchObservable2 = bookSearchUseCase.run(keyword2, 1).subscribeOn(Schedulers.io())
 
-        Flowable.zip(bookSearchObservable1, bookSearchObservable2, bookSearchZipper)
+        Single.zip(bookSearchObservable1, bookSearchObservable2, bookSearchZipper)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe {
@@ -134,7 +135,7 @@ class BookSearchViewModel : BaseViewModel() {
         val bookSearchObservable1 = bookSearchUseCase.run(keyword1, _recentPage.value!! + 1)
         val bookSearchObservable2 = bookSearchUseCase.run(keyword2, _recentPage.value!! + 1)
 
-        Flowable.zip(bookSearchObservable1, bookSearchObservable2, bookSearchZipper)
+        Single.zip(bookSearchObservable1, bookSearchObservable2, bookSearchZipper)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe {

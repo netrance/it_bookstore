@@ -1,6 +1,6 @@
 package lee.dorian.android.it_bookstore_search.data.retrofit
 
-import io.reactivex.Flowable
+import io.reactivex.Single
 import lee.dorian.android.it_bookstore_search.data.model.BookDetailsResponse
 import lee.dorian.android.it_bookstore_search.data.model.BookSearchResponse
 import retrofit2.Retrofit
@@ -21,11 +21,11 @@ class ITBookStoreClient {
         const val BASE_URL = "https://api.itbook.store/1.0/"
     }
 
-    fun requestBookSearch(query: String, page: Int = 1): Flowable<BookSearchResponse> {
+    fun requestBookSearch(query: String, page: Int = 1): Single<BookSearchResponse> {
         return client.requestBookSearch(query, page.toString())
     }
 
-    fun requestBookDetails(isbn13: String): Flowable<BookDetailsResponse> {
+    fun requestBookDetails(isbn13: String): Single<BookDetailsResponse> {
         return client.requestBookDetails(isbn13)
     }
 }

@@ -1,6 +1,6 @@
 package lee.dorian.android.it_bookstore_search.data.retrofit
 
-import io.reactivex.Flowable
+import io.reactivex.Single
 import lee.dorian.android.it_bookstore_search.data.model.BookDetailsResponse
 import lee.dorian.android.it_bookstore_search.data.model.BookSearchResponse
 import retrofit2.http.GET
@@ -13,12 +13,12 @@ interface ITBookStoreService {
     fun requestBookSearch(
         @Path("query") query: String,
         @Path("page") page: String
-    ): Flowable<BookSearchResponse>
+    ): Single<BookSearchResponse>
 
     // 도서 상세보기 API 실행
     @GET("books/{isbn13}")
     fun requestBookDetails(
         @Path("isbn13") page: String
-    ): Flowable<BookDetailsResponse>
+    ): Single<BookDetailsResponse>
 
 }
