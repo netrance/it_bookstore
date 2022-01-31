@@ -2,7 +2,6 @@ package lee.dorian.android.it_bookstore_search.book_search
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import io.reactivex.Flowable
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.functions.BiFunction
@@ -85,7 +84,7 @@ class BookSearchViewModel : BaseViewModel() {
             }
             .subscribe(
                 bookListConsumer,
-                bookListErrorConsumer
+                errorConsumer
             )
     }
 
@@ -104,7 +103,7 @@ class BookSearchViewModel : BaseViewModel() {
             }
             .subscribe(
                 bookListConsumer,
-                bookListErrorConsumer
+                errorConsumer
             )
     }
 
@@ -127,7 +126,7 @@ class BookSearchViewModel : BaseViewModel() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 bookListConsumer,
-                bookListErrorConsumer
+                errorConsumer
             )
     }
 
@@ -146,7 +145,7 @@ class BookSearchViewModel : BaseViewModel() {
             }
             .subscribe(
                 bookListConsumer,
-                bookListErrorConsumer
+                errorConsumer
             )
     }
 
@@ -170,8 +169,4 @@ class BookSearchViewModel : BaseViewModel() {
         }
     }
 
-    private val bookListErrorConsumer = Consumer<Throwable> {
-        it.printStackTrace()
-        _errorMessage.value = it.message
-    }
 }

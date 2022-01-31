@@ -10,14 +10,10 @@ import lee.dorian.android.it_bookstore_search.domain.model.Book
 
 @BindingAdapter("bookList")
 fun setItems(recyclerView: RecyclerView?, bookList: List<Book>?) {
-    var adapter = recyclerView?.adapter as BookListAdapter?
-
-    if (adapter == null) {
-        return
-    }
-
-    if (bookList != null) {
-        adapter.setBookList(bookList)
+    (recyclerView?.adapter as BookListAdapter?)?.let {
+        if (bookList != null) {
+            it.setBookList(bookList)
+        }
     }
 }
 

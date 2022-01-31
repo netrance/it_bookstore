@@ -35,16 +35,11 @@ class BookDetailsViewModel : BaseViewModel() {
             .doAfterTerminate {
                 _isLoading.value = false
             }
-            .subscribe(bookDetailsConsumer, bookDetailsErrorConsumer)
+            .subscribe(bookDetailsConsumer, errorConsumer)
     }
 
     private val bookDetailsConsumer = Consumer<BookDetails> { bookDetails ->
         _bookDetails.postValue(bookDetails)
-    }
-
-    private val bookDetailsErrorConsumer = Consumer<Throwable> {
-        it.printStackTrace()
-        _errorMessage.value = it.message
     }
 
 }
