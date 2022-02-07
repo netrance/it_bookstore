@@ -19,13 +19,13 @@ class BookDetailsActivity : BaseActivity<ActivityBookDetailsBinding, BookDetails
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding.viewModel?.let {
+        binding.viewModel = viewModel.apply {
             val isbn13 = intent.getStringExtra(INTENT_KEY_ISBN13) ?: ""
             if (!isbn13.isEmpty()) {
-                it.loadBookDetails(isbn13)
+                loadBookDetails(isbn13)
             }
 
-            it.errorMessage?.observe(this@BookDetailsActivity, defaultErrorMessageObserver)
+            errorMessage?.observe(this@BookDetailsActivity, defaultErrorMessageObserver)
         }
     }
 
