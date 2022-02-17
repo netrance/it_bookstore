@@ -48,7 +48,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="@{viewModel._bookDetails.subtitle}"
-                    style="@style/BookDetailsTextStyle"
+                    style="@style/BookDetailsSubtitleTextStyle"
                     app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
                 <TextView
@@ -56,7 +56,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text='@{String.format("Authors: %s", viewModel._bookDetails.authors)}'
+                    android:text='@{String.format("• Authors: %s", viewModel._bookDetails.authors)}'
                     style="@style/BookDetailsTextStyle"
                     app:layout_constraintTop_toBottomOf="@id/tvSubtitle" />
 
@@ -65,7 +65,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text='@{String.format("Publisher: %s", viewModel._bookDetails.pulisher)}'
+                    android:text='@{String.format("• Publisher: %s", viewModel._bookDetails.pulisher)}'
                     style="@style/BookDetailsTextStyle"
                     app:layout_constraintTop_toBottomOf="@id/tvAuthors" />
 
@@ -74,7 +74,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text='@{String.format("Language: %s", viewModel._bookDetails.language)}'
+                    android:text='@{String.format("• Language: %s", viewModel._bookDetails.language)}'
                     style="@style/BookDetailsTextStyle"
                     app:layout_constraintTop_toBottomOf="@id/tvPublisher" />
 
@@ -83,7 +83,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text='@{String.format("ISBN10: %s", viewModel._bookDetails.isbn10)}'
+                    android:text='@{String.format("• ISBN10: %s", viewModel._bookDetails.isbn10)}'
                     style="@style/BookDetailsTextStyle"
                     app:layout_constraintTop_toBottomOf="@id/tvLanguage" />
 
@@ -92,7 +92,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text='@{String.format("ISBN13: %s", viewModel._bookDetails.isbn13)}'
+                    android:text='@{String.format("• ISBN13: %s", viewModel._bookDetails.isbn13)}'
                     style="@style/BookDetailsTextStyle"
                     app:layout_constraintTop_toBottomOf="@id/tvIsbn10" />
 
@@ -101,7 +101,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text='@{String.format("Pages: %s", viewModel._bookDetails.pages)}'
+                    android:text='@{String.format("• Pages: %s", viewModel._bookDetails.pages)}'
                     style="@style/BookDetailsTextStyle"
                     app:layout_constraintTop_toBottomOf="@id/tvIsbn13" />
 
@@ -110,7 +110,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text='@{String.format("Year: %s", viewModel._bookDetails.year)}'
+                    android:text='@{String.format("• Year: %s", viewModel._bookDetails.year)}'
                     style="@style/BookDetailsTextStyle"
                     app:layout_constraintTop_toBottomOf="@id/tvPages" />
 
@@ -119,7 +119,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text='@{String.format("Rating: %s", viewModel._bookDetails.rating)}'
+                    android:text='@{String.format("• Rating: %s", viewModel._bookDetails.rating)}'
                     style="@style/BookDetailsTextStyle"
                     app:layout_constraintTop_toBottomOf="@id/tvYear" />
 
@@ -128,7 +128,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text='@{String.format("Desc: %s", viewModel._bookDetails.desc)}'
+                    android:text='@{String.format("• Desc: %s", viewModel._bookDetails.desc)}'
                     style="@style/BookDetailsTextStyle"
                     app:layout_constraintTop_toBottomOf="@id/tvRating" />
 
@@ -137,7 +137,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text='@{String.format("Price: %s", viewModel._bookDetails.price)}'
+                    android:text='@{String.format("• Price: %s", viewModel._bookDetails.price)}'
                     style="@style/BookDetailsTextStyle"
                     app:layout_constraintTop_toBottomOf="@id/tvDesc" />
 
@@ -146,7 +146,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text='@{String.format("Web Page: %s", viewModel._bookDetails.url)}'
+                    android:text='@{String.format("• Web Page: %s", viewModel._bookDetails.url)}'
                     style="@style/BookDetailsTextStyle"
                     app:layout_constraintTop_toBottomOf="@id/tvPrice" />
 

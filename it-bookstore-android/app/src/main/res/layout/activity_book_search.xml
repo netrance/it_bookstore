@@ -22,6 +22,7 @@
             android:id="@+id/etQuery"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/black"
             android:hint="Input book name or author."
             android:text="@={viewModel.query}"
             style="@style/QueryTextStyle"
@@ -34,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Search"
-            style="@style/QueryTextStyle"
+            style="@style/CustomButtonStyle"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="@id/etQuery"
             app:layout_constraintBottom_toBottomOf="@id/etQuery" />

@@ -42,24 +42,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{book.subtitle}"
+                style="@style/BookSubtitleTextStyle" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text='@{String.format("• ISBN13: %s", book.isbn13)}'
                 style="@style/BookTextStyle" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text='@{String.format("ISBN13: %s", book.isbn13)}'
+                android:text='@{String.format("• Price: %s", book.price)}'
                 style="@style/BookTextStyle" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text='@{String.format("Price: %s", book.price)}'
-                style="@style/BookTextStyle" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text='@{String.format("URL: %s", book.url)}'
+                android:text='@{String.format("• URL: %s", book.url)}'
                 style="@style/BookTextStyle" />
 
         </LinearLayout>
