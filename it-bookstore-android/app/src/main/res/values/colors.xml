@@ -11,4 +11,6 @@
     <!-- Custom colors -->
     <color name="book_backbround">#EEEEEE</color>
     <color name="book_subtitle">#AAAAAA</color>
+    <color name="book_item_bg">#FFFFFF</color>
+    <color name="book_item_selected_bg">#CCCCCC</color>
 </resources>
