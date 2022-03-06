@@ -86,6 +86,9 @@ class BookSearchViewModel : BaseViewModel() {
                 bookListConsumer,
                 errorConsumer
             )
+            .let {
+                disposables.add(it)
+            }
     }
 
     private fun searchBooksWith2Keywords() {
@@ -105,6 +108,9 @@ class BookSearchViewModel : BaseViewModel() {
                 bookListConsumer,
                 errorConsumer
             )
+            .also {
+                disposables.add(it)
+            }
     }
 
     fun appendBooks() {
@@ -128,6 +134,9 @@ class BookSearchViewModel : BaseViewModel() {
                 bookListConsumer,
                 errorConsumer
             )
+            .also {
+                disposables.add(it)
+            }
     }
 
     private fun appendBooksWith2Keywords() {
@@ -147,6 +156,9 @@ class BookSearchViewModel : BaseViewModel() {
                 bookListConsumer,
                 errorConsumer
             )
+            .let {
+                disposables.add(it)
+            }
     }
 
     private val bookSearchZipper = BiFunction<List<Book>, List<Book>, MutableList<Book>> { list1, list2 ->

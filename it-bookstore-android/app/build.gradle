@@ -72,7 +72,7 @@ dependencies {
 
     // for unit test
     testImplementation 'junit:junit:4.+'
-    testImplementation 'android.arch.core:core-testing:1.1.1'
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
 
     // for UI test
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

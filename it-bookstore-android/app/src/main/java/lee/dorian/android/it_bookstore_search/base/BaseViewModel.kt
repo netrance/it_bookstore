@@ -3,9 +3,12 @@ package lee.dorian.android.it_bookstore_search.base
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.functions.Consumer
 
 open class BaseViewModel : ViewModel() {
+
+    protected val disposables = CompositeDisposable()
 
     // Will use title after refactoring (01/30th/2022)
     protected val _title = MutableLiveData("")
@@ -26,4 +29,8 @@ open class BaseViewModel : ViewModel() {
         _errorMessage.value = it.message
     }
 
+    override fun onCleared() {
+        disposables.dispose()
+        super.onCleared()
+    }
 }

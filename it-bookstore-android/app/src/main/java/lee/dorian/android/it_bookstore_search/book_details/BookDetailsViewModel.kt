@@ -3,6 +3,7 @@ package lee.dorian.android.it_bookstore_search.book_details
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.functions.Consumer
 import io.reactivex.schedulers.Schedulers
 import lee.dorian.android.it_bookstore_search.base.BaseViewModel
@@ -36,6 +37,9 @@ class BookDetailsViewModel : BaseViewModel() {
                 _isLoading.value = false
             }
             .subscribe(bookDetailsConsumer, errorConsumer)
+            .let {
+                disposables.add(it)
+            }
     }
 
     private val bookDetailsConsumer = Consumer<BookDetails> { bookDetails ->

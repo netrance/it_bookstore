@@ -1,9 +1,9 @@
 package lee.dorian.android.it_bookstore_search.book_search
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import io.reactivex.functions.Consumer
+import io.reactivex.disposables.CompositeDisposable
 import lee.dorian.android.it_bookstore_search.Const
-import lee.dorian.android.it_bookstore_search.domain.model.Book
+import lee.dorian.android.it_bookstore_search.base.BaseViewModel
 import org.junit.*
 
 class BookSearchViewModelTest {
@@ -23,7 +23,6 @@ class BookSearchViewModelTest {
 
     @After
     fun tearDown() {
-
     }
 
     @Test
@@ -31,6 +30,30 @@ class BookSearchViewModelTest {
         viewModel.searchBooks("android")
         Thread.sleep(Const.COMMON_DELAY_MILLISECONDS.toLong())
         Assert.assertEquals(10, viewModel.bookList.value?.size)
+    }
+
+    @Test
+    fun onCleared() {
+        viewModel.searchBooks("android")
+        Thread.sleep(Const.COMMON_DELAY_MILLISECONDS.toLong())
+
+        // Calls viewModel.onCleard()
+        BookSearchViewModel::class.java.declaredMethods.first {
+            it.name == "onCleared"
+        }.also {
+            it.isAccessible = true
+            it.invoke(viewModel)
+        }
+
+        // Tests if viewModel.disposables.size() is equal to 0
+        BaseViewModel::class.java.declaredFields.first {
+            it.name == "disposables"
+        }.also {
+            it.isAccessible = true
+
+            val disposables = it.get(viewModel) as CompositeDisposable
+            Assert.assertEquals(0, disposables.size())
+        }
     }
 
 }
