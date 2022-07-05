@@ -20,9 +20,7 @@ class BookDetailsViewModel : BaseViewModel() {
 
     private val bookDetailsUseCase = RequestBookDetailsUseCase(
         ITBookStoreRepositoryImpl(
-            ITBookStoreRemoteDataSource(
-                ITBookStoreClient()
-            )
+            ITBookStoreRemoteDataSource()
         )
     )
 

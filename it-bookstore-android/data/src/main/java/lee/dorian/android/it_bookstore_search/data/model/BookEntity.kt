@@ -12,39 +12,13 @@ data class BookEntity(
     val url: String
 ) {
 
-    object Mapper {
-        fun toBookFrom(bookEntity: BookEntity): Book {
-            return Book(
-                bookEntity.title,
-                bookEntity.subtitle,
-                bookEntity.isbn13,
-                bookEntity.price,
-                bookEntity.image,
-                bookEntity.url
-            )
-        }
-
-        fun toBookEntityFrom(book: Book): BookEntity {
-            return BookEntity(
-                book.title,
-                book.subtitle,
-                book.isbn13,
-                book.price,
-                book.image,
-                book.url
-            )
-        }
-
-        fun toBookListFrom(bookEntityList: List<BookEntity>): List<Book> {
-            val bookList = LinkedList<Book>()
-
-            for (bookEntity in bookEntityList) {
-                val book = toBookFrom(bookEntity)
-                bookList.add(book)
-            }
-
-            return bookList
-        }
-    }
+    fun toDTO(): Book = Book(
+        title,
+        subtitle,
+        isbn13,
+        price,
+        image,
+        url
+    )
 
 }

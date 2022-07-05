@@ -8,12 +8,4 @@ data class BookSearchResponse(
     val total: String,
     val page: String,
     val books: List<BookEntity>
-) {
-    object Mapper {
-
-        fun toBookListFrom(response: BookSearchResponse): List<Book> {
-            return BookEntity.Mapper.toBookListFrom(response.books)
-        }
-
-    }
-}
+)

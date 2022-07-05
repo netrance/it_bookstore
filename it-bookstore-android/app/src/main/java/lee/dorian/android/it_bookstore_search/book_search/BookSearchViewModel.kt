@@ -36,7 +36,7 @@ class BookSearchViewModel : BaseViewModel() {
     init {
         _title.value = "IT Bookstore - Search"
         bookSearchUseCase = RequestBookSearchUseCase(
-            ITBookStoreRepositoryImpl(ITBookStoreRemoteDataSource(ITBookStoreClient()))
+            ITBookStoreRepositoryImpl(ITBookStoreRemoteDataSource())
         )
     }
 

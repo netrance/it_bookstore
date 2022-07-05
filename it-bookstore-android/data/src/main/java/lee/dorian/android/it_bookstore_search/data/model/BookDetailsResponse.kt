@@ -19,24 +19,20 @@ data class BookDetailsResponse(
     val image: String,
     val url: String
 ) {
-    object Mapper {
-        fun toBookDetailsFrom(response: BookDetailsResponse): BookDetails {
-            return BookDetails(
-                response.title,
-                response.subtitle,
-                response.authors,
-                response.publisher,
-                response.language,
-                response.isbn10,
-                response.isbn13,
-                response.pages,
-                response.year,
-                response.rating,
-                response.desc,
-                response.price,
-                response.image,
-                response.url
-            )
-        }
-    }
+    fun toDTO(): BookDetails = BookDetails(
+        title,
+        subtitle,
+        authors,
+        publisher,
+        language,
+        isbn10,
+        isbn13,
+        pages,
+        year,
+        rating,
+        desc,
+        price,
+        image,
+        url
+    )
 }

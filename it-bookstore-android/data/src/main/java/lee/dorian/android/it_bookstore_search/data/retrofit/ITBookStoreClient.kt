@@ -7,7 +7,9 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
-class ITBookStoreClient {
+object ITBookStoreClient {
+
+    const val BASE_URL = "https://api.itbook.store/1.0/"
 
     private val retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
@@ -15,17 +17,6 @@ class ITBookStoreClient {
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .build()
 
-    private val client = retrofit.create(ITBookStoreService::class.java)
+    val apiService = retrofit.create(ITBookStoreService::class.java)
 
-    companion object {
-        const val BASE_URL = "https://api.itbook.store/1.0/"
-    }
-
-    fun requestBookSearch(query: String, page: Int = 1): Single<BookSearchResponse> {
-        return client.requestBookSearch(query, page.toString())
-    }
-
-    fun requestBookDetails(isbn13: String): Single<BookDetailsResponse> {
-        return client.requestBookDetails(isbn13)
-    }
 }
